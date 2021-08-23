@@ -1,0 +1,105 @@
+﻿@model Application.Base.Dtos.SiteInfoDto
+@{
+    ViewData["Title"] = "اطلاعات سایت";
+}
+@section Style{
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-tagsinput/css/bootstrap-tagsinput.css">
+}
+<div class="card">
+    <div class="card-header">
+        <div class="card-header-right">
+            <ul class="list-unstyled card-option">
+                <li><i class="feather icon-maximize full-card"></i></li>
+                <li><i class="feather icon-minus minimize-card"></i></li>
+                <li><i class="feather icon-trash-2 close-card"></i></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-block">
+        <!-- Tab panes -->
+        <form method="post" class="col-lg-12" asp-controller="SiteInfo" asp-action="UpdateHomeInfo">
+            <div asp-validation-summary="ModelOnly"></div>
+            <input type="hidden" asp-for="Id" value="@Model.Id" />
+            <div class="tab-content card-block">
+                    <div class="form-group row">
+                        <div class="col-lg-3">
+                            <label asp-for="HomeTitle" class="col-form-label"></label>
+                            <input asp-for="HomeTitle" class="form-control">
+                            <span asp-validation-for="HomeTitle" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-3">
+                            <label asp-for="Phone" class="col-form-label"></label>
+                            <input asp-for="Phone" class="form-control">
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-3">
+                            <label asp-for="Mobile" class="col-form-label"></label>
+                            <input asp-for="Mobile" class="form-control">
+                            <span asp-validation-for="Mobile" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-3">
+                            <label asp-for="Fax" class="col-form-label"></label>
+                            <input asp-for="Fax" class="form-control">
+                            <span asp-validation-for="Fax" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3">
+                            <label asp-for="Email" class="col-form-label"></label>
+                            <input asp-for="Email" class="form-control">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-3">
+                            <label asp-for="ZipCode" class="col-form-label"></label>
+                            <input asp-for="ZipCode" class="form-control">
+                            <span asp-validation-for="ZipCode" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6">
+                            <label asp-for="Address" class="col-form-label"></label>
+                            <textarea asp-for="Address" class="form-control"></textarea>
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+                    </div>
+      
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <label asp-for="SeoDescription" class="col-form-label"></label>
+                            <textarea asp-for="SeoDescription" class="form-control"></textarea>
+                            <span asp-validation-for="SeoDescription" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6">
+                            <label asp-for="SeoKeyword" class="col-form-label"></label>
+                            <br />
+                            <input data-role="tagsinput" asp-for="SeoKeyword" class="tag label label-success" />
+                            <span asp-validation-for="SeoKeyword" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <label asp-for="SeoImage" class="col-form-label"></label>
+                            <input type="file" asp-for="SeoImage" id="filer_input1" style="position: absolute; left: -9999px; top: -9999px; z-index: -9999;">
+                            <span asp-validation-for="SeoImage" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                <hr />
+                <button type="submit" class="btn btn-success">ذخیره</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+@section Scripts{
+
+    <!-- Tags js -->
+    <script type="text/javascript" src="/bower_components/bootstrap-tagsinput/js/bootstrap-tagsinput.js"></script>
+    <script>
+        $.validator.setDefaults({
+            ignore: ""
+        });
+    </script>
+}
+<!-- jquery file upload js -->
+@{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+

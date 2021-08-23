@@ -1,0 +1,51 @@
+﻿@{
+
+    ViewData["headertitle"] = "مدیران";
+}
+<!-- Data Table Css -->
+@section Style{
+    <link rel="stylesheet" type="text/css" href="/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/sweetalert/css/sweetalert.css">
+    <!-- animation nifty modal window effects css -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/component.css">
+    <link rel="stylesheet" type="text/css" href="/assets/pages/data-table/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
+}
+
+<div class="table-responsive dt-responsive">
+    <table id="usertable" class="table table-striped table-bordered nowrap"></table>
+</div>
+
+@section Scripts{
+    <!-- data-table js -->
+    <script src="/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <!-- sweet alert js -->
+    <script type="text/javascript" src="/bower_components/sweetalert/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="/assets/js/modal.js"></script>
+    <!-- sweet alert modal.js intialize js -->
+    <!-- modalEffects js nifty modal window effects -->
+    <script type="text/javascript" src="/assets/js/modalEffects.js"></script>
+    <script type="text/javascript" src="/assets/js/classie.js"></script>
+    <script src="~/Scripts/Panel/Account/Admins.js"></script>
+}
+@section Modals{
+    <div class="md-modal md-effect-5" id="DeleteModal">
+        <div class="md-content">
+            <h3>Modal Dialog</h3>
+            <div>
+                <p>This is a modal window. You can do the following things with it:</p>
+                <ul>
+                    <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+                    <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+                    <li><strong>Close:</strong> click on the button below to close the modal.</li>
+                </ul>
+                <button onclick="cancelModal()" type="button" class="btn btn-primary waves-effect md-close">Close</button>
+            </div>
+        </div>
+    </div>
+    <div class="md-overlay"></div>
+}

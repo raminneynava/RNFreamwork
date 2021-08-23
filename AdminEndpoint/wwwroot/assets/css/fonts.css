@@ -1,0 +1,107 @@
+@font-face {
+    font-family: IranYekan;
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/iranyekanweblight.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('../fonts/iranyekanweblight.ttf') format('truetype');
+}
+@font-face {
+    font-family: IranYekan;
+    font-style: normal;
+    font-weight: bold;
+    src: url('../fonts/iranyekanwebbold.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('../fonts/iranyekanwebbold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'IRANSharp';
+    src: url('../fonts/IRANSharp.eot');
+    src: url('../fonts/IRANSharp.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/IRANSharp.woff2') format('woff2'),
+    url('../fonts/IRANSharp.woff') format('woff'),
+    url('../fonts/IRANSharp.ttf') format('truetype'),
+    url('../fonts/IRANSharp.svg#IRANSharp') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Jazeel';
+    src: url('../fonts/Jazeel-Bold.eot');
+    src: url('../fonts/Jazeel-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Jazeel-Bold.woff2') format('woff2'),
+    url('../fonts/Jazeel-Bold.woff') format('woff'),
+    url('../fonts/Jazeel-Bold.ttf') format('truetype'),
+    url('../fonts/Jazeel-Bold.svg#Jazeel-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: Vazir;
+    src: url('../fonts/Vazir-FD.eot');
+    src: url('../fonts/Vazir-FD.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Vazir-FD.woff2') format('woff2'),
+    url('../fonts/Vazir-FD.woff') format('woff'),
+    url('../fonts/Vazir-FD.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: Vazir;
+    src: url('../fonts/Vazir-Black-FD.eot');
+    src: url('../fonts/Vazir-Black-FD.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Vazir-Black-FD.woff2') format('woff2'),
+    url('../fonts/Vazir-Black-FD.woff') format('woff'),
+    url('../fonts/Vazir-Black-FD.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: Vazir;
+    src: url('../fonts/Vazir-Black-FD.eot');
+    src: url('../fonts/Vazir-Black-FD.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Vazir-Black-FD.woff2') format('woff2'),
+    url('../fonts/Vazir-Black-FD.woff') format('woff'),
+    url('../fonts/Vazir-Black-FD.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: Vazir;
+    src: url('../fonts/Vazir-Medium-FD.eot');
+    src: url('../fonts/Vazir-Medium-FD.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Vazir-Medium-FD.woff2') format('woff2'),
+    url('../fonts/Vazir-Medium-FD.woff') format('woff'),
+    url('../fonts/Vazir-Medium-FD.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: Vazir;
+    src: url('../fonts/Vazir-Light-FD.eot');
+    src: url('../fonts/Vazir-Light-FD.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Vazir-Light-FD.woff2') format('woff2'),
+    url('../fonts/Vazir-Light-FD.woff') format('woff'),
+    url('../fonts/Vazir-Light-FD.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: Vazir;
+    src: url('../fonts/Vazir-Thin-FD.eot');
+    src: url('../fonts/Vazir-Thin-FD.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Vazir-Thin-FD.woff2') format('woff2'),
+    url('../fonts/Vazir-Thin-FD.woff') format('woff'),
+    url('../fonts/Vazir-Thin-FD.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SinkinSans';
+    src: url('../fonts/SinkinSans-100Thin.eot');
+    src: url('../fonts/SinkinSans-100Thin.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/SinkinSans-100Thin.woff2') format('woff2'),
+    url('../fonts/SinkinSans-100Thin.woff') format('woff'),
+    url('../fonts/SinkinSans-100Thin.ttf') format('truetype'),
+    url('../fonts/SinkinSans-100Thin.svg#SinkinSans-100Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+}

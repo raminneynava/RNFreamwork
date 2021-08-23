@@ -1,0 +1,104 @@
+﻿@model Application.Content.Dtos.PageContentDto
+@{
+    ViewData["Title"] = "ویرایش صفحه";
+}
+@section Style{
+    <link href="/assets/pages/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css" type="text/css" rel="stylesheet">
+    <link href="/assets/pages/jquery.filer/css/jquery.filer.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-tagsinput/css/bootstrap-tagsinput.css">
+}
+<div class="card">
+    <div class="card-header">
+        <div class="card-header-right">
+            <ul class="list-unstyled card-option">
+                <li><i class="feather icon-maximize full-card"></i></li>
+                <li><i class="feather icon-minus minimize-card"></i></li>
+                <li><i class="feather icon-trash-2 close-card"></i></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-block">
+
+        <form method="post" class="col-lg-12" asp-controller="PageContent" asp-action="Update">
+            <div asp-validation-summary="ModelOnly"></div>
+            <input type="hidden" asp-for="Id" value="@Model.Id" />
+            <div class="tab-content card-block">
+                <div class="form-group row">
+                    <div class="col-lg-3">
+                        <label asp-for="Title" class="col-form-label"></label>
+                        <input asp-for="Title" class="form-control">
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-3">
+                        <label asp-for="SeoTitle" class="col-form-label"></label>
+                        <input asp-for="SeoTitle" class="form-control">
+                        <span asp-validation-for="SeoTitle" class="text-danger"></span>
+                    </div>
+                    <div class="col-lg-3">
+                        <label asp-for="SeoUrl" class="col-form-label"></label>
+                        <input asp-for="SeoUrl" class="fa-th-large form-control">
+                        <span asp-validation-for="SeoUrl" class="text-danger"></span>
+                    </div>
+                    <div class="col-lg-3">
+                        <label asp-for="SeoDescription" class="col-form-label"></label>
+                        <textarea asp-for="SeoDescription" class="form-control"></textarea>
+                        <span asp-validation-for="SeoDescription" class="text-danger"></span>
+                    </div>
+                    <div class="col-lg-3">
+                        <label asp-for="SeoKeyword" class="col-form-label"></label>
+                        <br />
+                        <input data-role="tagsinput" asp-for="SeoKeyword" class="tag label label-success" />
+                        <span asp-validation-for="SeoKeyword" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-12">
+                        <label asp-for="SeoImage" class="col-form-label"></label>
+                        <input type="file" asp-for="SeoImage" id="filer_input1" style="position: absolute; left: -9999px; top: -9999px; z-index: -9999;">
+                        <span asp-validation-for="SeoImage" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <textarea asp-for="Content" style="height:580px;" class="form-control">@Model.Content</textarea>
+                </div>
+                <hr />
+                <button type="submit" class="btn btn-success">ذخیره</button>
+                <a href="/PageContent/list" class="btn btn-warning">بازگشت به لیست</a>
+                <br />
+                <span asp-validation-for="Title" class="text-danger"></span>
+                <br />
+                <span asp-validation-for="SeoTitle" class="text-danger"></span>
+                <br />
+                <span asp-validation-for="SeoUrl" class="text-danger"></span>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+@section Scripts{
+    <script src="/assets/pages/jquery.filer/js/jquery.filer.min.js"></script>
+    <script src="/assets/pages/filer/custom-filer.js" type="text/javascript"></script>
+    <!-- Switch component js -->
+    <script type="text/javascript" src="/bower_components/switchery/js/switchery.min.js"></script>
+    <script type="text/javascript" src="/assets/pages/advance-elements/swithces.js"></script>
+    <!-- Tags js -->
+    <script type="text/javascript" src="/bower_components/bootstrap-tagsinput/js/bootstrap-tagsinput.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js"></script>
+    <script src="~/bower_components/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('Content', {
+            language: 'fa',
+            contentsLangDirection: 'rtl',
+            skin: 'kama',
+        });
+        $.validator.setDefaults({
+            ignore: ""
+        });
+    </script>
+}
+<!-- jquery file upload js -->
+@{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+

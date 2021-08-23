@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewData["Title"] = "دسته بندی محصولات";
+}
+
+<!-- Data Table Css -->
+@section Style{
+    <link rel="stylesheet" type="text/css" href="/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/pages/data-table/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
+}
+<input type="hidden" id="CatId" value="@ViewBag.CatId" />
+<input type="hidden" id="level" value="@ViewBag.Level" />
+<br />
+<div class="card">
+    <div class="card-header">
+        <div class="card-header-left">
+            <a class="btn btn-primary btn-round" href="/ProductCat/Add/@ViewBag.CatId">افزودن</a>
+            @*@if (ViewBag.CatId != null)
+            {
+
+                <a href="/ProductCat/list/@ViewBag.ParentId" class="btn btn-primary btn-round" id="addtolist">back</a>
+            }*@
+        </div>
+        <div class="card-header-right">
+            <ul class="list-unstyled card-option">
+                <li><i class="feather icon-maximize full-card"></i></li>
+                <li><i class="feather icon-minus minimize-card"></i></li>
+                <li><i class="feather icon-trash-2 close-card"></i></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-block">
+        <div class="table-responsive dt-responsive">
+            <table id="dataTable" class="table table-striped table-bordered nowrap"></table>
+        </div>
+    </div>
+</div>
+@section Modals{
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" style="z-index: 1050; display: none;  padding-right: 16px;" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">@ViewData["Title"]</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="DeleteModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal-body">
+                    آیا برای حذف مطمعن هستید؟
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">لغو</button>
+                    <button id="DeleteClick" type="button" class="btn btn-primary">حذف کن</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="md-overlay"></div>
+}
+@section Scripts{
+    <!-- data-table js -->
+    <script src="/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/Scripts/Product/ProductCategory.js"></script>
+
+}
+
+

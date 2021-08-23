@@ -1,0 +1,201 @@
+﻿@model Application.Eshop.Dtos.AddDiscountDto
+@{@using Infrastructure.Entities.Eshop
+ViewData["Title"] = "افزدن";
+}
+@section Style{
+    <link href="/assets/pages/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css" type="text/css" rel="stylesheet">
+    <link href="/assets/pages/jquery.filer/css/jquery.filer.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-tagsinput/css/bootstrap-tagsinput.css">
+    <link href="~/lib/PersianCalender/css/persian-datepicker.css" rel="stylesheet" />
+    <link href="~/bower_components/select2/css/select2.min.css" rel="stylesheet" />
+}
+<div class="card">
+    <div class="card-header">
+        <div class="card-header-right">
+            <ul class="list-unstyled card-option">
+                <li><i class="feather icon-maximize full-card"></i></li>
+                <li><i class="feather icon-minus minimize-card"></i></li>
+                <li><i class="feather icon-trash-2 close-card"></i></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-block">
+        <form method="post" class="col-lg-12" asp-controller="Discounts" asp-action="insert">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="tab-content card-block">
+
+                <div class="form-group row">
+                    <div class="col-lg-3">
+                        <label asp-for="Title" class="col-form-label"></label>
+                        <input asp-for="Title" class="form-control">
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="col-lg-3">
+                        <label asp-for="RequiredCoponeCode" class="col-form-label"></label>
+                        <div class="col-sm-12 col-xl-4 m-b-30">
+                            <input asp-for="RequiredCoponeCode" type="checkbox" class="js-single">
+                        </div>
+                        <span asp-validation-for="RequiredCoponeCode" class="text-danger"></span>
+                    </div>
+                    <div class="col-lg-3">
+                        <label asp-for="CoponCode" class="col-form-label"></label>
+                        <input asp-for="CoponCode" class="form-control">
+                        <span asp-validation-for="CoponCode" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-3">
+                        <label asp-for="StartDate" class="col-form-label"></label>
+                        <input asp-for="StartDate" type="text" class="form-control">
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                    <div class="col-lg-3">
+                        <label asp-for="EndDate" class="col-form-label"></label>
+                        <input asp-for="EndDate" type="text" class="form-control" />
+                        <span asp-validation-for="EndDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-3">
+                        <label asp-for="UsePercentage" class="col-form-label"></label>
+                        <div class="col-sm-12 col-xl-4 m-b-30">
+                            <input asp-for="UsePercentage" type="checkbox" class="js-switch">
+                        </div>
+                        <span asp-validation-for="UsePercentage" class="text-danger"></span>
+                    </div>
+                    <div class="col-lg-3">
+                        <label asp-for="DiscountPercentage" class="col-form-label"></label>
+                        <input asp-for="DiscountPercentage" class="form-control">
+                        <span asp-validation-for="DiscountPercentage" class="text-danger"></span>
+                    </div>
+                    <div class="col-lg-3">
+                        <label asp-for="DisscountAmmount" class="col-form-label"></label>
+                        <input asp-for="DisscountAmmount" class="form-control" />
+                        <span asp-validation-for="DisscountAmmount" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-3">
+                        <label asp-for="DiscountTypeId" class="col-form-label"></label>
+                        <select asp-for="DiscountTypeId" asp-items="Html.GetEnumSelectList<DiscountType>()" class="form-control"></select>
+                        <span asp-validation-for="DiscountTypeId" class="text-danger"></span>
+                    </div>
+                    <div class="col-lg-3">
+                        <label asp-for="DiscountLimitationId" class="col-form-label"></label>
+                        <select asp-for="DiscountLimitationId" asp-items="Html.GetEnumSelectList<DiscountLimitation>()" class="form-control"></select>
+                        <span asp-validation-for="DiscountLimitationId" class="text-danger"></span>
+                    </div>
+                    <div class="col-lg-3">
+                        <label asp-for="LimitationTime" class="col-form-label"></label>
+                        <input asp-for="LimitationTime" class="form-control" />
+                        <span asp-validation-for="LimitationTime" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-4">
+                        <label> محصولات را انتخاب کنید</label>
+                        <select asp-for="AppliedProducts" class="js-example-basic-single"></select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-4">
+                        <label> گروه را انتخاب کنید</label>
+                        <select asp-for="AppliedCategorys" class="js-example-basic-single"></select>
+                    </div>
+                </div>
+                <hr />
+                <button type="submit" class="btn btn-success">ذخیره</button>
+                <a href="/Brand/list" class="btn btn-warning">بازگشت به لیست</a>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+@section Scripts{
+    <script src="/assets/pages/jquery.filer/js/jquery.filer.min.js"></script>
+    <script src="/assets/pages/filer/custom-filer.js" type="text/javascript"></script>
+    <!-- Switch component js -->
+    <script type="text/javascript" src="/bower_components/switchery/js/switchery.min.js"></script>
+    <script type="text/javascript" src="/assets/pages/advance-elements/swithces.js"></script>
+    <!-- Tags js -->
+    <script type="text/javascript" src="/bower_components/bootstrap-tagsinput/js/bootstrap-tagsinput.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js"></script>
+    <script src="~/lib/PersianCalender/js/persian-date.js"></script>
+    <script src="~/lib/PersianCalender/js/persian-datepicker-0.4.5.min.js"></script>
+    <script src="~/bower_components/select2/js/select2.full.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.js-example-basic-single').select2({
+                dir: "rtl",
+                placeholder: "جستجوی محصول",
+                allowClear: true,
+                multiple: true,
+                tags: true,
+                tokenSeparators: [',', ' '],
+                ajax: {
+                    url: "/api/Getproduct",
+                    contentType: "application/json; charset=utf-8",
+                    data: function (params) {
+                        var query =
+                        {
+                            term: params.term,
+                        };
+                        return query;
+                    },
+                    processResults: function (result) {
+                        return {
+                            results: $.map(result, function (item) {
+                                return {
+                                    id: item.id,
+                                    text: item.title
+                                };
+                            }),
+                        };
+                    }
+                }
+            });
+            $('#AppliedCategorys').select2({
+                dir: "rtl",
+                placeholder: "جستجوی محصول",
+                allowClear: true,
+                multiple: true,
+                tags: true,
+                tokenSeparators: [',', ' '],
+                ajax: {
+                    url: "/api/GetCategory",
+                    contentType: "application/json; charset=utf-8",
+                    data: function (params) {
+                        var query =
+                        {
+                            term: params.term,
+                        };
+                        return query;
+                    },
+                    processResults: function (result) {
+                        return {
+                            results: $.map(result, function (item) {
+                                return {
+                                    id: item.id,
+                                    text: item.title
+                                };
+                            }),
+                        };
+                    }
+                }
+            });
+        });
+        $(document).ready(function () {
+            $('#StartDate').pDatepicker({
+                format: 'YYYY/MM/DD'
+            });
+            $('#EndDate').pDatepicker({
+                format: 'YYYY/MM/DD'
+            });
+        });
+
+    </script>
+}
+<!-- jquery file upload js -->
+@{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
